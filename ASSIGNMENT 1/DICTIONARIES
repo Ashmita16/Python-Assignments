@@ -1,3 +1,4 @@
+4. DICTIONARIES 
 Dictionary is a data structure that stores information in key-value pairs. While keys must be unique and immutable, values can be of any data type, whether mutable or immutable. This makes dictionaries ideal for accessing data by a specific name rather than a numeric position like in list.
 
 The code example for Dictionaries is given below:
