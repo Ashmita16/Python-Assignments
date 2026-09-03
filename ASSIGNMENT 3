@@ -1,0 +1,16 @@
+QUESTION 3: Swap two variables without using a 3rd one
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+a, b = b, a
+print("After swapping:")
+print("First number:", a)
+print("Second number:", b)
+
+OUTPUT
+
+Enter first number: 10
+Enter second number: 20
+After swapping:
+First number: 20
+Second number: 10
