@@ -1,5 +1,6 @@
 #QUESTION 2: Write a Python program to create your own version of copy.deepcopy method 
 
+ANSWER:
 
 def my_deepcopy(data):
     if isinstance(data, list):
