@@ -1,11 +1,13 @@
 3. SET
 
+ANSWER:
+
 Set is a built-in Python data type used to store a collection of unique items. They:
 a. Store only unique elements; duplicate values are automatically removed.
 b. Unordered collection, so elements do not have a fixed position and cannot be accessed using indexes.
 c. Supports fast search, insertion and deletion operations using hashing internally.
 
-The code example for Sets is given below:
+The code example for Set is given below:
 
 # 1. CREATING A SET USING CURLY BRACKETS
 
@@ -161,7 +163,6 @@ set1 = {1, 2, 3, 4}
 set2 = {3, 4}
 set1 -= set2
 print("After difference update:", set1)
-
 
 # 22. SYMMETRIC DIFFERENCE UPDATE USING ^=
 
