@@ -1,0 +1,48 @@
+#QUESTION 2: Write a Python program to create your own version of copy.deepcopy method 
+
+
+def my_deepcopy(data):
+    if isinstance(data, list):
+        new_list = []
+        for item in data:
+            new_list.append(my_deepcopy(item))
+        return new_list
+    elif isinstance(data, dict):
+        new_dict = {}
+        for key, value in data.items():
+            new_dict[my_deepcopy(key)] = my_deepcopy(value)
+        return new_dict
+    else:
+        return data
+
+# SAMPLE EXAMPLE
+
+original = {
+    "name": "Ashmita",
+    "marks": [80, 85, 90],
+    "details": {
+        "course": "CSE",
+        "year": 2026
+    }
+}
+copied = my_deepcopy(original)
+print("Original:", original)
+print("Copied:", copied)
+copied["marks"][0] = 100
+copied["details"]["year"] = 2027
+print("\nAfter modifying copied dictionary:")
+print("Original:", original)
+print("Copied:", copied)
+
+OUTPUT
+
+Original: {'name': 'Ashmita', 'marks': [80, 85, 90], 'details': {'course': 'CSE', 'year': 2026}}
+Copied: {'name': 'Ashmita', 'marks': [80, 85, 90], 'details': {'course': 'CSE', 'year': 2026}}
+
+After modifying copied dictionary:
+Original: {'name': 'Ashmita', 'marks': [80, 85, 90], 'details': {'course': 'CSE', 'year': 2026}}
+Copied: {'name': 'Ashmita', 'marks': [100, 85, 90], 'details': {'course': 'CSE', 'year': 2027}}
+
+EXPLANATION
+
+In this program, I created my own function called my_deepcopy() to make a deep copy of a list or dictionary without directly using Python’s built-in copy.deepcopy() method. My function checks whether the data is a list or dictionary and creates a new list or dictionary by recursively copying each element or key-value pair. For simple data types such as integers and strings, it directly returns the value. I then created an original dictionary containing a nested list and a nested dictionary and used my_deepcopy() to create copied. After modifying the nested values in copied, the original dictionary remained unchanged. This resembles the actual copy.deepcopy() method because both create an independent copy of the original object, including its nested objects, so changes made to the copied object do not affect the original.
