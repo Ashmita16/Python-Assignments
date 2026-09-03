@@ -1,0 +1,417 @@
+Dictionary is a data structure that stores information in key-value pairs. While keys must be unique and immutable, values can be of any data type, whether mutable or immutable. This makes dictionaries ideal for accessing data by a specific name rather than a numeric position like in list.
+
+The code example for Dictionaries is given below:
+
+# 1. CREATING A DICTIONARY USING CURLY BRACKETS
+
+print("1. Creating Dictionary Using Curly Brackets")
+student = {
+    "name": "Ashmita",
+    "age": 22,
+    "course": "CSE"
+}
+print("Student:", student)
+
+# 2. CREATING AN EMPTY DICTIONARY
+
+print("\n2. Creating Empty Dictionary")
+data = {}
+print("Empty dictionary:", data)
+
+# 3. CREATING DICTIONARY USING dict() CONSTRUCTOR
+
+print("\n3. Creating Dictionary Using dict() Constructor")
+student = dict(name="Ashmita", age=22, course="CSE")
+print("Student:", student)
+
+# 4. DICTIONARY WITH DIFFERENT DATA TYPES
+
+print("\n4. Dictionary With Different Data Types")
+data = {
+    "name": "Ashmita",
+    "age": 22,
+    "marks": 91.5,
+    "passed": True
+}
+print("Dictionary:", data)
+
+# 5. ACCESSING VALUES USING KEYS
+
+print("\n5. Accessing Values Using Keys")
+student = {
+    "name": "Pinky",
+    "age": 21,
+    "course": "CSE"
+}
+print("Name:", student["name"])
+print("Age:", student["age"])
+
+# 6. ACCESSING VALUES USING get()
+
+print("\n6. get() Method")
+student = {
+    "name": "Priya",
+    "age": 22
+    "Course": None
+}
+print("Name:", student.get("name"))
+print("Course:", student.get("course"))
+
+# 7. ADDING A NEW KEY-VALUE PAIR
+
+print("\n7. Adding New Key-Value Pair")
+student = {
+    "name": "Amit",
+    "age": 23
+}
+student["course"] = "CSE"
+print("After adding course:", student)
+
+# 8. UPDATING A VALUE
+
+print("\n8. Updating Value")
+student = {
+    "name": "Mousumi",
+    "age": 23,
+    "marks": 75
+}
+student["marks"] = 90
+print("Updated dictionary:", student)
+
+# 9. update() METHOD
+
+print("\n9. update() Method")
+student = {
+    "name": "Rahul",
+    "age": 21
+}
+student.update({
+    "course": "CSE",
+    "marks": 85
+})
+print("After update:", student)
+
+# 10. keys()
+
+print("\n10. keys() Method")
+student = {
+    "name": "Priya",
+    "age": 22,
+    "course": "CSE"
+}
+print("Keys:", student.keys())
+
+# 11. values()
+
+print("\n11. values() Method")
+student = {
+    "name": "Priya",
+    "age": 22,
+    "course": "CSE"
+}
+print("Values:", student.values())
+
+# 12. items()
+
+print("\n12. items() Method")
+student = {
+    "name": "Priya",
+    "age": 22,
+    "course": "CSE"
+}
+print("Items:", student.items())
+
+# 13. CHECKING KEY USING in
+
+print("\n13. Checking Key")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+if "name" in student:
+    print("Name key is present")
+else:
+    print("Name key is not present")
+
+# 14. REMOVING ELEMENT USING pop()
+
+print("\n14. pop() Method")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+removed = student.pop("age")
+print("Removed value:", removed)
+print("After pop:", student)
+
+# 15. popitem()
+
+print("\n15. popitem() Method")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+removed = student.popitem()
+print("Removed item:", removed)
+print("After popitem:", student)
+
+# 16. del STATEMENT
+
+print("\n16. del Statement")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+del student["age"]
+print("After deleting age:", student)
+
+# 17. clear()
+
+print("\n17. clear() Method")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+student.clear()
+print("After clear:", student)
+
+# 18. len()
+
+print("\n18. len() Function")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+print("Number of items:", len(student))
+
+# 19. ITERATING OVER DICTIONARY KEYS
+
+print("\n19. Iterating Over Dictionary")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+for key in student:
+    print(key)
+
+# 20. ITERATING OVER KEYS AND VALUES
+
+print("\n20. Iterating Over Keys and Values")
+student = {
+    "name": "Rahul",
+    "age": 21,
+    "course": "CSE"
+}
+for key, value in student.items():
+    print(key, ":", value)
+
+
+# 21. COPYING A DICTIONARY USING copy()
+
+print("\n21. copy() Method")
+original = {
+    "name": "Rahul",
+    "age": 21
+}
+copied = original.copy()
+print("Original dictionary:", original)
+print("Copied dictionary:", copied)
+
+# 22. setdefault()
+
+print("\n22. setdefault() Method")
+student = {
+    "name": "Rahul",
+    "age": 21
+}
+student.setdefault("course", "CSE")
+print("After setdefault:", student)
+
+# 23. NESTED DICTIONARY
+
+print("\n23. Nested Dictionary")
+students = {
+    "student1": {
+        "name": "Rahul",
+        "marks": 85
+    },
+    "student2": {
+        "name": "Priya",
+        "marks": 92
+    }
+}
+print("Student 1:", students["student1"])
+print("Student 2 name:", students["student2"]["name"])
+print("Student 2 marks:", students["student2"]["marks"])
+
+
+# 24. DICTIONARY WITH LIST AS VALUE
+
+print("\n24. Dictionary With List as Value")
+student = {
+    "name": "Ashmita",
+    "subjects": ["Python", "Java", "SQL"]
+}
+print("Name:", student["name"])
+print("Subjects:", student["subjects"])
+
+# 25. DICTIONARY COMPREHENSION
+
+print("\n25. Dictionary Comprehension")
+numbers = [1, 2, 3, 4, 5]
+squares = {number: number * number for number in numbers}
+print("Numbers:", numbers)
+print("Squares:", squares)
+
+# 26. FROMKEYS()
+
+print("\n26. fromkeys() Method")
+subjects = ["Math", "Science", "English"]
+marks = dict.fromkeys(subjects, 0)
+print("Subjects with marks:", marks)
+
+# 27. CONVERTING LIST OF TUPLES TO DICTIONARY
+
+print("\n27. Converting List of Tuples to Dictionary")
+data = [
+    ("name", "Amit"),
+    ("age", 23),
+    ("course", "CSE")
+]
+student = dict(data)
+print("Dictionary:", student)
+
+# 28. CHECKING WHETHER A VALUE EXISTS
+
+print("\n28. Checking Value")
+student = {
+    "name": "Priya",
+    "age": 22,
+    "course": "CSE"
+}
+if "Priya" in student.values():
+    print("Priya is present as a value")
+else:
+    print("Priya is not present as a value")
+
+# 29. DICTIONARY WITH INTEGER KEYS
+
+print("\n29. Dictionary With Integer Keys")
+marks = {
+    101: 85,
+    102: 92,
+    103: 78
+}
+print("Marks of student 101:", marks[101])
+print("Marks of student 102:", marks[102])
+
+OUTPUT:
+
+#1
+Student: {'name': 'Ashmita', 'age': 22, 'course': 'CSE'}
+
+#2
+Empty dictionary: {}
+
+#3
+Student: {'name': 'Ashmita', 'age': 22, 'course': 'CSE'}
+
+#4
+Dictionary: {'name': 'Ashmita', 'age': 22, 'marks': 91.5, 'passed': True}
+
+#5
+Name: Pinky
+Age: 21
+
+#6
+Name: Priya
+Course: None
+
+#7
+After adding course: {'name': 'Amit', 'age': 23, 'course': 'CSE'}
+
+#8
+Updated dictionary: {'name': 'Mousumi', 'age': 23, 'marks': 90}
+
+#9
+After update: {'name': 'Rahul', 'age': 21, 'course': 'CSE', 'marks': 85}
+
+#10
+Keys: dict_keys(['name', 'age', 'course'])
+
+#11
+Values: dict_values(['Priya', 22, 'CSE'])
+
+#12
+Items: dict_items([('name', 'Priya'), ('age', 22), ('course', 'CSE')])
+
+#13
+Name key is present
+
+#14
+Removed value: 21
+After pop: {'name': 'Rahul', 'course': 'CSE'}
+
+#15
+Removed item: ('course', 'CSE')
+After popitem: {'name': 'Rahul', 'age': 21}
+
+#16
+After deleting age: {'name': 'Rahul', 'course': 'CSE'}
+
+#17
+After clear: {}
+
+#18
+Number of items: 3
+
+#19
+name
+age
+course
+
+#20
+name : Rahul
+age : 21
+course : CSE
+
+#21
+Original dictionary: {'name': 'Rahul', 'age': 21}
+Copied dictionary: {'name': 'Rahul', 'age': 21}
+
+#22
+After setdefault: {'name': 'Rahul', 'age': 21, 'course': 'CSE'}
+
+#23
+Student 1: {'name': 'Rahul', 'marks': 85}
+Student 2 name: Priya
+Student 2 marks: 92
+
+#24
+Name: Ashmita
+Subjects: ['Python', 'Java', 'SQL']
+
+#25
+Numbers: [1, 2, 3, 4, 5]
+Squares: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+#26
+Subjects with marks: {'Math': 0, 'Science': 0, 'English': 0}
+
+#27
+Dictionary: {'name': 'Amit', 'age': 23, 'course': 'CSE'}
+
+#28
+Priya is present as a value
+
+#29
+Marks of student 101: 85
+Marks of student 102: 92
+
