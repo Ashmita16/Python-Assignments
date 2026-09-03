@@ -1,6 +1,8 @@
 QUESTION 5: dict = {"a": 10, "b": {"c": {"d": 20}}, "e": 100} # write a program to print this output from this dictionary 
 # output: {"a":10,"b.c.d": 20, "e": 100} 
 
+ANSWER:
+
 dict1 = {
     "a": 10,
     "b": {
@@ -10,23 +12,17 @@ dict1 = {
     },
     "e": 100
 }
-
 result = {}
-
 def flat_dictionary(data, parent_key=""):
     for key, value in data.items():
-
         if parent_key:
             new_key = parent_key + "." + key
         else:
             new_key = key
-
         if isinstance(value, dict):
             flat_dictionary(value, new_key)
         else:
             result[new_key] = value
-
-
 flat_dictionary(dict1)
 print(result)
 
