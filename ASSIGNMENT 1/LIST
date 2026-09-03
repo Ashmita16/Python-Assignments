@@ -1,0 +1,343 @@
+# QUESTION 1: Explore all the methods of collection framework and write down coding example
+
+ANSWER:
+In Python the Collection Framework is comprised of built-in container data types like lists, sets, dictionaries and tuples and specialized container data types provided by the native Python collection module.
+
+1. LIST:
+List is a built-in data structure used to store an ordered collection of items. They are dynamic, resizable and capable of storing multiple data types. Lists have the following features:
+They are: 
+a. Mutable: Which means list elements can be changed, updated, added, or removed after the list is created.
+b. Ordered: Which means elements maintain the order in which they are inserted.
+c. Index-based: This means elements are accessed using their position, starting from index 0.
+The code example for List is given below:
+
+# 1. CREATING A LIST USING SQUARE BRACKETS
+
+print("1. Creating List Using Square Brackets")
+fruits = ["mango", "orange", "grapes"]
+print("Fruits:", fruits)
+
+# 2. CREATING A LIST USING list() CONSTRUCTOR
+
+print("\n2. Creating List Using list() Constructor")
+numbers = list((5, 10, 15, 20))
+print("List from tuple:", numbers)
+letters = list("Python")
+print("List from string:", letters)
+
+# 3. CREATING LIST WITH REPEATED ELEMENTS
+
+print("\n3. Creating List With Repeated Elements")
+stars = ["*"] * 6
+print("Repeated *:", stars)
+
+# 4. LIST WITH MULTIPLE DATA TYPES
+
+print("\n4. List With Multiple Data Types")
+data = [100, "Python", 3.14, True]
+print("First element:", data[0])
+
+# 5. ACCESSING ELEMENTS USING INDEXING
+
+print("\n5. Accessing Elements")
+marks = [75, 82, 91, 68]
+print("First mark:", marks[0])
+print("Last mark:", marks[-1])
+
+# 6. append() - This is used to add an element at the end of the list
+
+print("\n6. append() Method")
+colors = ["red", "blue"]
+colors.append("green")
+print("After append:", colors)
+
+# 7. insert() - This is used to add an element at a specific position
+
+print("\n7. insert() Method")
+animals = ["dog", "cat"]
+animals.insert(1, "rabbit")
+print("After insert:", animals)
+
+# 8. extend()- This is used to add multiple elements to the end
+
+print("\n8. extend() Method")
+subjects = ["Math", "Science"]
+subjects.extend(["English", "Computer"])
+print("After extend:", subjects)
+
+# 9. UPDATING ELEMENTS
+
+print("\n9. Updating Elements")
+marks = [70, 80, 85, 90]
+marks[2] = 95
+print("Updated marks:", marks)
+
+# 10. remove()- This removes the first occurrence of an element
+
+print("\n10. remove() Method")
+languages = ["Python", "Java", "C++", "JavaScript"]
+languages.remove("C++")
+print("After remove:", languages)
+
+# 11. pop() - This removes the last element
+
+print("\n11. pop() Method")
+numbers = [10, 20, 30, 40]
+removed = numbers.pop()
+print("Removed element:", removed)
+print("After pop:", numbers)
+
+# 12. pop() USING INDEX
+
+print("\n12. pop() With Index")
+numbers = [100, 200, 300, 400]
+removed = numbers.pop(2)
+print("Removed element:", removed)
+print("After pop:", numbers)
+
+# 13. DELETE ELEMENT USING del
+
+print("\n13. del Statement")
+cities = ["Kolkata", "Delhi", "Mumbai", "Chennai"]
+del cities[1]
+print("After deleting index 1:", cities)
+
+# 14. clear() - This is used to remove all elements
+
+print("\n14. clear() Method")
+numbers = [10, 20, 30, 40]
+numbers.clear()
+print("After clear:", numbers)
+
+# 15. ITERATING OVER A LIST
+
+print("\n15. Iterating Over List")
+subjects = ["Python", "Java", "SQL"]
+for subject in subjects:
+    print(subject)
+
+# 16. NESTED LIST
+
+print("\n16. Nested List")
+students = [
+    ["Rahul", 85],
+    ["Priya", 92],
+    ["Amit", 78]
+]
+print("First student:", students[0])
+print("Name of second student:", students[1][0])
+print("Marks of second student:", students[1][1])
+
+# 17. LIST SLICING
+
+print("\n17. List Slicing")
+numbers = [10, 20, 30, 40, 50, 60]
+print("First three elements:", numbers[0:3])
+print("From index 2:", numbers[2:])
+print("Last three elements:", numbers[-3:])
+print("Reverse:", numbers[::-1])
+
+# 18. count() - This is used to count how many times an element occurs
+
+print("\n18. count() Method")
+numbers = [10, 20, 20, 30, 20, 40]
+print("Number of times 20 occurs:", numbers.count(20))
+
+# 19. index() - Finds the index of an element
+
+print("\n19. index() Method")
+fruits = ["apple", "mango", "banana", "orange"]
+print("Index of banana:", fruits.index("banana"))
+
+# 20. sort() - This is used to sort the list
+
+print("\n20. sort() Method")
+numbers = [45, 12, 78, 23, 56]
+numbers.sort()
+print("Ascending order:", numbers)
+numbers.sort(reverse=True)
+print("Descending order:", numbers)
+
+# 21. reverse() - Reverses the list
+
+print("\n21. reverse() Method")
+letters = ["A", "B", "C", "D"]
+letters.reverse()
+print("Reversed list:", letters)
+
+# 22. copy() - Creates a copy of the list
+
+print("\n22. copy() Method")
+original = ["Python", "Java", "C++"]
+copied = original.copy()
+print("Original list:", original)
+print("Copied list:", copied)
+
+# 23. len() - Finds the number of elements in a list
+
+print("\n23. len() Function")
+numbers = [5, 10, 15, 20, 25]
+print("Number of elements:", len(numbers))
+
+# 24. CHECKING ELEMENT USING in
+
+print("\n24. Checking Element")
+fruits = ["apple", "banana", "mango"]
+if "mango" in fruits:
+    print("Mango is present in the list")
+else:
+    print("Mango is not present in the list")
+
+# 25. CONCATENATING TWO LISTS
+
+print("\n25. Concatenating Lists")
+list1 = ["Python", "Java"]
+list2 = ["C++", "JavaScript"]
+combined = list1 + list2
+print("Combined list:", combined)
+
+# 26. LIST REPETITION
+
+print("\n26. List Repetition")
+numbers = [1, 2, 3]
+repeated = numbers * 2
+print("Repeated list:", repeated)
+
+# 27. min(), max() AND sum()
+
+print("\n27. min(), max() and sum()")
+marks = [75, 82, 91, 68, 88]
+print("Minimum mark:", min(marks))
+print("Maximum mark:", max(marks))
+print("Total marks:", sum(marks))
+
+# 28. NESTED LIST - MATRIX EXAMPLE
+
+print("\n28. Matrix Using Nested List")
+matrix = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+]
+print("Matrix:")
+for row in matrix:
+    print(row)
+print("Element at row 2, column 3:", matrix[1][2])
+
+# 29. LIST COMPREHENSION
+
+print("\n29. List Comprehension")
+numbers = [1, 2, 3, 4, 5]
+squares = [number * number for number in numbers]
+print("Original numbers:", numbers)
+print("Squares:", squares)
+
+OUTPUT
+
+#1
+Fruits: ['mango', 'orange', 'grapes']
+
+#2
+List from tuple: [5, 10, 15, 20]
+
+#3
+Repeated *: ['*', '*', '*', '*', '*', '*']
+
+#4
+First element: 100
+
+#5
+First mark: 75
+Last mark: 68
+
+#6
+After append: ['red', 'blue', 'green']
+
+#7
+After insert: ['dog', 'rabbit', 'cat']
+
+#8
+After extend: ['Math', 'Science', 'English', 'Computer']
+
+#9
+Updated marks: [70, 80, 95, 90]
+
+#10
+After remove: ['Python', 'Java', 'JavaScript']
+
+#11
+Removed element: 40
+After pop: [10, 20, 30]
+
+#12
+Removed element: 300
+After pop: [100, 200, 400]
+
+#13
+After deleting index 1: ['Kolkata', 'Mumbai', 'Chennai']
+
+#1
+After clear: []
+
+#15
+Python
+Java
+SQL
+
+#16
+First student: ['Rahul', 85]
+Name of second student: Priya
+Marks of second student: 92
+
+#17
+First three elements: [10, 20, 30]
+From index 2: [30, 40, 50, 60]
+Last three elements: [40, 50, 60]
+Reverse: [60, 50, 40, 30, 20, 10]
+
+#18
+Number of times 20 occurs: 3
+
+#19
+Index of banana: 2
+
+#20
+Ascending order: [12, 23, 45, 56, 78]
+Descending order: [78, 56, 45, 23, 12]
+
+#21
+Reversed list: ['D', 'C', 'B', 'A']
+
+#22
+Original list: ['Python', 'Java', 'C++']
+Copied list: ['Python', 'Java', 'C++']
+
+#23
+Number of elements: 5
+
+#24
+Mango is present in the list
+
+#25
+Combined list: ['Python', 'Java', 'C++', 'JavaScript']
+
+#26
+Repeated list: [1, 2, 3, 1, 2, 3]
+
+#27
+Minimum mark: 68
+Maximum mark: 91
+Total marks: 404
+
+#28
+Matrix:
+[10, 20, 30]
+[40, 50, 60]
+[70, 80, 90]
+Element at row 2, column 3: 60
+
+#29
+Original numbers: [1, 2, 3, 4, 5]
+Squares: [1, 4, 9, 16, 25]
+
+
