@@ -1,0 +1,318 @@
+3. SET
+
+Set is a built-in Python data type used to store a collection of unique items. They:
+a. Store only unique elements; duplicate values are automatically removed.
+b. Unordered collection, so elements do not have a fixed position and cannot be accessed using indexes.
+c. Supports fast search, insertion and deletion operations using hashing internally.
+
+The code example for Sets is given below:
+
+# 1. CREATING A SET USING CURLY BRACKETS
+
+print("1. Creating Set Using Curly Brackets")
+fruits = {"mango", "orange", "grapes"}
+print("Fruits:", fruits)
+
+# 2. CREATING A SET USING set() CONSTRUCTOR
+
+print("\n2. Creating Set Using set() Constructor")
+numbers = set([10, 20, 30, 40])
+letters = set("Python")
+print("Set from list:", numbers)
+print("Set from string:", letters)
+
+# 3. CREATING A SET WITH DUPLICATE ELEMENTS
+
+print("\n3. Creating Set With Duplicate Elements")
+numbers = {10, 20, 20, 30, 30, 30}
+print("Set:", numbers)
+
+# 4. SET WITH MULTIPLE DATA TYPES
+
+print("\n4. Set With Multiple Data Types")
+data = {100, "Python", 3.14, True}
+print("Set:", data)
+
+# 5. ADDING AN ELEMENT USING add()
+
+print("\n5. add() Method")
+colors = {"red", "blue"}
+colors.add("green")
+print("After add:", colors)
+
+# 6. ADDING MULTIPLE ELEMENTS USING update()
+
+print("\n6. update() Method")
+subjects = {"Math", "Science"}
+subjects.update(["English", "Computer"])
+print("After update:", subjects)
+
+# 7. REMOVING AN ELEMENT USING remove()
+
+print("\n7. remove() Method")
+languages = {"Python", "Java", "C++", "JavaScript"}
+languages.remove("C++")
+print("After remove:", languages)
+
+# 8. REMOVING AN ELEMENT USING discard()
+
+print("\n8. discard() Method")
+fruits = {"apple", "banana", "mango"}
+fruits.discard("banana")
+print("After discard:", fruits)
+
+# 9. pop()
+
+print("\n9. pop() Method")
+numbers = {10, 20, 30, 40}
+removed = numbers.pop()
+print("Removed element:", removed)
+print("After pop:", numbers)
+
+# 10. clear()
+
+print("\n10. clear() Method")
+numbers = {10, 20, 30, 40}
+numbers.clear()
+print("After clear:", numbers)
+
+# 11. CHECKING ELEMENT USING in
+
+print("\n11. Checking Element")
+fruits = {"apple", "banana", "mango"}
+if "mango" in fruits:
+    print("Mango is present in the set")
+else:
+    print("Mango is not present in the set")
+
+# 12. UNION
+
+print("\n12. union() Method")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.union(set2)
+print("Union:", result)
+
+# 13. INTERSECTION
+
+print("\n13. intersection() Method")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.intersection(set2)
+print("Intersection:", result)
+
+# 14. DIFFERENCE
+
+print("\n14. difference() Method")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.difference(set2)
+print("Difference:", result)
+
+# 15. SYMMETRIC DIFFERENCE
+
+print("\n15. symmetric_difference() Method")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1.symmetric_difference(set2)
+print("Symmetric Difference:", result)
+
+# 16. isdisjoint()
+
+print("\n16. isdisjoint() Method")
+set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+print("Are the sets disjoint?", set1.isdisjoint(set2))
+
+# 17. issubset()
+
+print("\n17. issubset() Method")
+set1 = {1, 2}
+set2 = {1, 2, 3, 4}
+print("Is set1 a subset of set2?", set1.issubset(set2))
+
+# 18. issuperset()
+
+print("\n18. issuperset() Method")
+set1 = {1, 2, 3, 4}
+set2 = {1, 2}
+print("Is set1 a superset of set2?", set1.issuperset(set2))
+
+# 19. UPDATE USING |=
+
+print("\n19. Union Update")
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1 |= set2
+print("After union update:", set1)
+
+# 20. INTERSECTION UPDATE USING &=
+
+print("\n20. Intersection Update")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+set1 &= set2
+print("After intersection update:", set1)
+
+# 21. DIFFERENCE UPDATE USING -=
+
+print("\n21. Difference Update")
+set1 = {1, 2, 3, 4}
+set2 = {3, 4}
+set1 -= set2
+print("After difference update:", set1)
+
+
+# 22. SYMMETRIC DIFFERENCE UPDATE USING ^=
+
+print("\n22. Symmetric Difference Update")
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1 ^= set2
+print("After symmetric difference update:", set1)
+
+# 23. COPYING A SET USING copy()
+
+print("\n23. copy() Method")
+original = {"Python", "Java", "C++"}
+copied = original.copy()
+print("Original set:", original)
+print("Copied set:", copied)
+
+# 24. len()
+
+print("\n24. len() Function")
+numbers = {10, 20, 30, 40, 50}
+print("Number of elements:", len(numbers))
+
+# 25. ITERATING OVER A SET
+
+print("\n25. Iterating Over Set")
+subjects = {"Python", "Java", "SQL"}
+for subject in subjects:
+    print(subject)
+
+# 26. CONVERTING LIST TO SET
+
+print("\n26. Converting List to Set")
+numbers = [10, 20, 20, 30, 30, 40]
+number_set = set(numbers)
+print("Original list:", numbers)
+print("Converted set:", number_set)
+
+# 27. CONVERTING SET TO LIST
+
+print("\n27. Converting Set to List")
+numbers = {10, 20, 30, 40}
+number_list = list(numbers)
+print("Original set:", numbers)
+print("Converted list:", number_list)
+
+# 28. FROZEN SET CONCEPT
+
+print("\n28. frozenset Example")
+numbers = frozenset([10, 20, 30, 40])
+print("Frozen set:", numbers)
+
+# 29. SET COMPARISON
+
+print("\n29. Set Comparison")
+set1 = {1, 2, 3}
+set2 = {1, 2, 3}
+print("Are both sets equal?", set1 == set2)
+
+OUTPUT:
+
+#1
+Fruits: {'mango', 'orange', 'grapes'}
+
+#2
+Set from list: {10, 20, 30, 40}
+Set from string: {'P', 'y', 't', 'h', 'o', 'n'}
+
+#3
+Set: {10, 20, 30}
+
+#4
+Set: {100, 'Python', 3.14, True}
+
+#5
+After add: {'red', 'blue', 'green'}
+
+#6
+After update: {'Math', 'Science', 'English', 'Computer'}
+
+#7
+After remove: {'Python', 'Java', 'JavaScript'}
+
+#8
+After discard: {'apple', 'mango'}
+
+#9
+Removed element: 10
+After pop: {20, 30, 40}
+
+#10
+After clear: set()
+
+#11
+Mango is present in the set
+
+#12
+Union: {1, 2, 3, 4, 5, 6}
+
+#13
+Intersection: {3, 4}
+
+#14
+Difference: {1, 2}
+
+#15
+Symmetric Difference: {1, 2, 5, 6}
+
+#16
+Are the sets disjoint? True
+
+#17
+Is set1 a subset of set2? True
+
+#18
+Is set1 a superset of set2? True
+
+#19
+After union update: {1, 2, 3, 4, 5}
+
+#20
+After intersection update: {3, 4}
+
+#21
+After difference update: {1, 2}
+
+#22
+After symmetric difference update: {1, 2, 4, 5}
+
+#23
+Original set: {'Python', 'Java', 'C++'}
+Copied set: {'Python', 'Java', 'C++'}
+
+#24
+Number of elements: 5
+
+#25
+Python
+Java
+SQL
+
+#26
+Original list: [10, 20, 20, 30, 30, 40]
+Converted set: {10, 20, 30, 40}
+
+#27
+Original set: {10, 20, 30, 40}
+Converted list: [10, 20, 30, 40]
+
+#28
+Frozen set: frozenset({10, 20, 30, 40})
+
+#29
+Are both sets equal? True
