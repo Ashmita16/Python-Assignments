@@ -1,0 +1,19 @@
+QUESTION 6: nums = [10, 20, "Test", None, 3.2, [10, [40, [60, [90]]]]] 
+# Write a program to find out the sum of all these numbers 
+# output = 10 + 20 + 3.2  + 40 + 60 + 90 =  
+
+nums = [10, 20, "Test", None, 3.2, [10, [40, [60, [90]]]]]
+total = 0
+def find_sum(data):
+    global total
+    for item in data:
+        if isinstance(item, (int, float)):
+            total += item
+        elif isinstance(item, list):
+            find_sum(item)
+find_sum(nums)
+print("Sum of all numbers:", total)
+
+OUTPUT:
+10 + 20 + 3.2  + 40 + 60 + 90 = 223.2
+
