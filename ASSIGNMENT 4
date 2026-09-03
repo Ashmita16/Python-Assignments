@@ -1,0 +1,76 @@
+QUESTION 4: Find out all the set operations like union, intersection and so on and forth
+
+# Creating two sets
+
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+print("Set 1:", set1)
+print("Set 2:", set2)
+
+# 1. UNION
+
+print("\n1. Union:")
+print(set1.union(set2))
+
+# 2. INTERSECTION
+
+print("\n2. Intersection:")
+print(set1.intersection(set2))
+
+# 3. DIFFERENCE
+
+print("\n3. Difference (set1 - set2):")
+print(set1.difference(set2))
+
+# 4. DIFFERENCE
+
+print("\n4. Difference (set2 - set1):")
+print(set2.difference(set1))
+
+# 5. SYMMETRIC DIFFERENCE
+
+print("\n5. Symmetric Difference:")
+print(set1.symmetric_difference(set2))
+
+# 6. SUBSET
+
+set3 = {1, 2}
+print("\n6. Subset:")
+print(set3.issubset(set1))
+
+# 7. SUPERSET
+
+print("\n7. Superset:")
+print(set1.issuperset(set3))
+set4 = {7, 8, 9}
+print("\n8. Disjoint:")
+print(set1.isdisjoint(set4))
+
+OUTPUT
+
+Set 1: {1, 2, 3, 4}
+Set 2: {3, 4, 5, 6}
+
+#1 
+{1, 2, 3, 4, 5, 6}
+
+#2
+{3, 4}
+
+#3
+{1, 2}
+
+#4
+{5, 6}
+
+#5
+{1, 2, 5, 6}
+
+#6
+True
+
+#7
+True
+
+#8
+True
