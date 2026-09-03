@@ -1,4 +1,7 @@
 2. TUPLE
+
+ANSWER: 
+
 A tuple is an immutable ordered collection of elements.
 a. Tuples are similar to lists, but unlike lists, they cannot be changed after their creation.
 b. Tuples can hold elements of different data types.
@@ -31,11 +34,9 @@ letters = tuple("Python")
 print("Tuple from list:", numbers)
 print("Tuple from string:", letters)
 
-
 # 4. CREATING A TUPLE WITH ONE ELEMENT
 
 print("\n4. Creating Tuple With One Element")
-
 number = (50,)
 name = ("Ashmita",)
 print("Single number tuple:", number)
@@ -47,7 +48,6 @@ print("\n5. Tuple With Multiple Data Types")
 data = (100, "Python", 3.14, True)
 print("First element:", data[0])
 print("Complete tuple:", data)
-
 
 # 6. ACCESSING ELEMENTS USING INDEXING
 
@@ -63,7 +63,6 @@ colors = ("red", "blue", "green", "yellow")
 print("Last color:", colors[-1])
 
 # 8. TUPLE SLICING
-
 
 print("\n8. Tuple Slicing")
 numbers = (10, 20, 30, 40, 50, 60)
@@ -155,7 +154,6 @@ number_list = list(numbers)
 print("Original tuple:", numbers)
 print("Converted list:", number_list)
 
-
 # 20. CONVERTING LIST TO TUPLE
 
 print("\n20. Converting List to Tuple")
@@ -169,10 +167,6 @@ print("Converted tuple:", number_tuple)
 print("\n21. Tuple Immutability")
 numbers = (10, 20, 30)
 print("Original tuple:", numbers)
-# Tuples cannot be modified directly.
-# The following line would produce an error:
-#
-# numbers[1] = 25
 
 OUTPUT
 
