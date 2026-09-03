@@ -120,9 +120,9 @@ for subject in subjects:
 
 print("\n16. Nested List")
 students = [
-    ["Rahul", 85],
+    ["Ashmita", 85],
     ["Priya", 92],
-    ["Amit", 78]
+    ["Mousumi", 78]
 ]
 print("First student:", students[0])
 print("Name of second student:", students[1][0])
@@ -276,7 +276,7 @@ After pop: [100, 200, 400]
 #13
 After deleting index 1: ['Kolkata', 'Mumbai', 'Chennai']
 
-#1
+#14
 After clear: []
 
 #15
@@ -285,7 +285,7 @@ Java
 SQL
 
 #16
-First student: ['Rahul', 85]
+First student: ['Ashmita', 85]
 Name of second student: Priya
 Marks of second student: 92
 
