@@ -2,6 +2,8 @@ QUESTION 6: nums = [10, 20, "Test", None, 3.2, [10, [40, [60, [90]]]]]
 # Write a program to find out the sum of all these numbers 
 # output = 10 + 20 + 3.2  + 40 + 60 + 90 =  
 
+ANSWER:
+
 nums = [10, 20, "Test", None, 3.2, [10, [40, [60, [90]]]]]
 total = 0
 def find_sum(data):
