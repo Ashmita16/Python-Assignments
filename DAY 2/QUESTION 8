@@ -1,0 +1,45 @@
+text = """
+Python is powerful.
+Python is simple.
+Python is popular.
+"""
+def count_characters(text):
+    return len(text)
+def count_words(text):
+    words = text.split()
+    return len(words)
+def count_sentences(text):
+    sentences = text.split(".")
+    sentences = [sentence for sentence in sentences if sentence.strip()]
+    return len(sentences)
+def count_unique_words(text):
+    words = text.lower().replace(".", "").split()
+    return len(set(words))
+def most_frequent_word(text):
+    words = text.lower().replace(".", "").split()
+    frequency = {}
+    for word in words:
+        frequency[word] = frequency.get(word, 0) + 1
+    return max(frequency, key=frequency.get)
+def longest_word(text):
+    words = text.replace(".", "").split()
+    return max(words, key=len)
+def shortest_word(text):
+    words = text.replace(".", "").split()
+    return min(words, key=len)
+print("Number of characters:", count_characters(text))
+print("Number of words:", count_words(text))
+print("Number of sentences:", count_sentences(text))
+print("Number of unique words:", count_unique_words(text))
+print("Most frequently occurring word:", most_frequent_word(text))
+print("Longest word:", longest_word(text))
+print("Shortest word:", shortest_word(text))
+
+OUTPUT:
+Number of characters: 58
+Number of words: 9
+Number of sentences: 3
+Number of unique words: 5
+Most frequently occurring word: python
+Longest word: powerful
+Shortest word: is
