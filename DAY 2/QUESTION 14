@@ -3,40 +3,78 @@ questions = [
         "question": "What is Python?",
         "options": ["Language", "Database", "OS", "Browser"],
         "answer": 1
-    }
+    },
+    {
+        "question": "Which symbol is used for comments in Python?",
+        "options": ["//", "#", "/*", "--"],
+        "answer": 2
+    },
+    {
+        "question": "Which of these is a Python collection?",
+        "options": ["List", "Class", "Function", "Module"],
+        "answer": 1
+    },
+    {
+        "question": "What is the output type of input() in Python?",
+        "options": ["Integer", "Float", "String", "Boolean"],
+        "answer": 3
+    },
+    {
+        "question": "Which keyword is used for a loop?",
+        "options": ["repeat", "for", "loop", "iterate"],
+        "answer": 2
+    },
+
 ]
+
+
 def display_question(question_number):
     question = questions[question_number]
+
     print("\nQuestion", question_number + 1)
     print(question["question"])
+
     for i, option in enumerate(question["options"], start=1):
         print(i, ".", option)
+
+
 def get_answer():
     while True:
         try:
             answer = int(input("Enter your answer: "))
+
             if answer < 1 or answer > 4:
-                raise ValueError
+                raise ValueError("Answer must be between 1 and 4")
+
             return answer
-        except ValueError:
+
+        except ValueError as e:
             print("Invalid answer")
+
+
 def check_answer(question, answer):
     return answer == question["answer"]
+
+
 def calculate_score(correct, total):
     return (correct / total) * 100
+
+
 def main():
     correct = 0
 
     for i in range(len(questions)):
+
         display_question(i)
 
         answer = get_answer()
 
         if check_answer(questions[i], answer):
-            print("Correct!")
+            print("Correct")
             correct += 1
         else:
-            print("Wrong!")
+            print("Wrong")
+
     total = len(questions)
     wrong = total - correct
     score = calculate_score(correct, total)
@@ -44,6 +82,8 @@ def main():
     print("Correct:", correct)
     print("Wrong:", wrong)
     print("Score:", score, "%")
+
+
 main()
 
 OUTPUT:
@@ -53,23 +93,45 @@ What is Python?
 2 . Database
 3 . OS
 4 . Browser
-Enter your answer: 2
-Wrong!
-Total Questions: 1
-Correct: 0
-Wrong: 1
-Score: 0.0 %
-
-
-Question 1
-What is Python?
-1 . Language
-2 . Database
-3 . OS
-4 . Browser
 Enter your answer: 1
-Correct!
-Total Questions: 1
-Correct: 1
-Wrong: 0
-Score: 100.0 %
+Correct
+
+Question 2
+Which symbol is used for comments in Python?
+1 . //
+2 . #
+3 . /*
+4 . --
+Enter your answer: 2
+Correct
+
+Question 3
+Which of these is a Python collection?
+1 . List
+2 . Class
+3 . Function
+4 . Module
+Enter your answer: 3
+Wrong
+
+Question 4
+What is the output type of input() in Python?
+1 . Integer
+2 . Float
+3 . String
+4 . Boolean
+Enter your answer: 2
+Wrong
+
+Question 5
+Which keyword is used for a loop?
+1 . repeat
+2 . for
+3 . loop
+4 . iterate
+Enter your answer: 1
+Wrong
+Total Questions: 5
+Correct: 2
+Wrong: 3
+Score: 40.0 %
