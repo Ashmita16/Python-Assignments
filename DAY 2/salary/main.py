@@ -63,3 +63,12 @@ employee = {
 
 then OUTPUT will be:
 Salary Error: Salary must be greater than 0
+
+If Input set is:
+employee = {
+    "name": "Ashmita",
+    "basic_salary": 100000,
+    "experience": -1
+}
+then OUTPUT will be:
+Experience Error: Experience cannot be negative
