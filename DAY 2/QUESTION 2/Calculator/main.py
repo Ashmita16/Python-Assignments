@@ -31,3 +31,30 @@ def main():
             print("Please enter a number from 1 to 6")
 if __name__ == "__main__":
     main()
+
+
+OUTPUT:
+
+Simple Calculator
+--------------------
+Enter first number: 345
+Enter second number: 234
+Enter operation: +
+Result: 579.0
+
+
+Simple Calculator
+--------------------
+Enter first number: 32
+Enter second number: 23
+Enter operation: #
+Please choose from +, -, *, /
+Enter operation: -
+Result: 9.0
+
+Simple Calculator
+--------------------
+Enter first number: 43
+Enter second number: 0
+Enter operation: /
+Error: Cannot divide by zero
