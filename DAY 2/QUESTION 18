@@ -1,0 +1,73 @@
+expenses = [
+    {"category": "Food", "amount": 500},
+    {"category": "Travel", "amount": 1000},
+    {"category": "Food", "amount": 300},
+    {"category": "Shopping", "amount": 2000}
+]
+class ExpenseError(Exception):
+    pass
+class EmptyExpensesError(ExpenseError):
+    pass
+class InvalidAmountError(ExpenseError):
+    pass
+def calculate_total(expenses):
+    if not expenses:
+        raise EmptyExpensesError("Expenses cannot be empty")
+    total = 0
+    for expense in expenses:
+        amount = expense["amount"]
+
+        if not isinstance(amount, (int, float)) or amount <= 0:
+            raise InvalidAmountError(
+                "Expense amount must be a positive number"
+            )
+
+        total += amount
+
+    return total
+
+
+def group_by_category(expenses):
+    if not expenses:
+        raise EmptyExpensesError("Expenses cannot be empty")
+
+    category_totals = {}
+
+    for expense in expenses:
+        amount = expense["amount"]
+
+        if not isinstance(amount, (int, float)) or amount <= 0:
+            raise InvalidAmountError(
+                "Expense amount must be a positive number"
+            )
+
+        category = expense["category"]
+
+        category_totals[category] = (
+            category_totals.get(category, 0) + amount
+        )
+    return category_totals
+def get_highest_category(category_totals):
+    return max(category_totals, key=category_totals.get)
+def generate_report(expenses):
+    total = calculate_total(expenses)
+    category_totals = group_by_category(expenses)
+    highest_category = get_highest_category(category_totals)
+    print("Total Expense: ₹" + str(total))
+    print()
+    for category, amount in category_totals.items():
+        print(category + ": ₹" + str(amount))
+    print()
+    print("Highest Category:", highest_category)
+try:
+    generate_report(expenses)
+except ExpenseError as e:
+    print("Error:", e)
+
+OUTPUT:
+
+Total Expense: ₹3800
+Food: ₹800
+Travel: ₹1000
+Shopping: ₹2000
+Highest Category: Shopping
