@@ -1,0 +1,125 @@
+inventory = {
+    "laptop": 10,
+    "mouse": 50,
+    "keyboard": 25
+}
+class InventoryError(Exception):
+    pass
+class ProductNotFoundError(InventoryError):
+    pass
+class InvalidStockError(InventoryError):
+    pass
+class InsufficientStockError(InventoryError):
+    pass
+def validate_inventory():
+    for product, quantity in inventory.items():
+        if quantity < 0:
+            raise InvalidStockError(
+                f"Stock cannot be negative for {product}."
+            )
+def add_product(product, quantity):
+    if quantity < 0:
+        raise InvalidStockError("Stock cannot be negative.")
+    if product in inventory:
+        inventory[product] += quantity
+    else:
+        inventory[product] = quantity
+
+    print(product, "added successfully")
+def remove_product(product):
+    if product not in inventory:
+        raise ProductNotFoundError("Product does not exist.")
+
+    del inventory[product]
+    print(product, "removed successfully")
+def sell_product(product, quantity):
+    if product not in inventory:
+        raise ProductNotFoundError(
+            "Cannot sell a nonexistent product."
+        )
+    if quantity <= 0:
+        raise InvalidStockError(
+            "Quantity must be positive."
+        )
+    if inventory[product] < 0:
+        raise InvalidStockError(
+            f"Stock cannot be negative for {product}."
+        )
+
+    if quantity > inventory[product]:
+        raise InsufficientStockError(
+            "Not enough stock available."
+        )
+
+    inventory[product] -= quantity
+
+    print(quantity, product, "sold successfully")
+
+def restock_product(product, quantity):
+    if product not in inventory:
+        raise ProductNotFoundError(
+            "Cannot restock a nonexistent product."
+        )
+
+    if quantity <= 0:
+        raise InvalidStockError(
+            "Restock quantity must be positive."
+        )
+
+    inventory[product] += quantity
+
+    print(quantity, product, "added to stock")
+def check_stock(product):
+    if product not in inventory:
+        raise ProductNotFoundError(
+            "Product does not exist."
+        )
+
+    if inventory[product] < 0:
+        raise InvalidStockError(
+            f"Stock cannot be negative for {product}."
+        )
+
+    return inventory[product]
+try:
+    print("Initial Inventory:", inventory)
+    validate_inventory()
+
+    add_product("monitor", 15)
+
+    sell_product("laptop", 2)
+
+    restock_product("mouse", 10)
+
+    print("Laptop stock:", check_stock("laptop"))
+    print("Mouse stock:", check_stock("mouse"))
+
+    remove_product("monitor")
+
+    print("Final Inventory:", inventory)
+
+except InventoryError as e:
+    print("Error:", e)
+
+OUTPUT:
+
+Initial Inventory: {'laptop': 10, 'mouse': 50, 'keyboard': 25}
+monitor added successfully
+2 laptop sold successfully
+10 mouse added to stock
+Laptop stock: 8
+Mouse stock: 60
+monitor removed successfully
+Final Inventory: {'laptop': 8, 'mouse': 60, 'keyboard': 25}
+
+If Input set is:
+
+inventory = {
+    "laptop": -10,
+    "mouse": 50,
+    "keyboard": 25
+}
+Then Output set is:
+
+Initial Inventory: {'laptop': -10, 'mouse': 50, 'keyboard': 25}
+Error: Stock cannot be negative for laptop.
