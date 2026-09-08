@@ -1,0 +1,31 @@
+import string
+text = """
+Python is easy.
+Python is powerful.
+Python is widely used.
+"""
+def get_word_frequency(text):
+    if not text.strip():
+        raise ValueError("Input text cannot be empty.")
+    text = text.lower()
+    text = text.translate(str.maketrans("", "", string.punctuation))
+    words = text.split()
+    frequency = {}
+    for word in words:
+        frequency[word] = frequency.get(word, 0) + 1
+    return frequency
+def get_most_common_word(text):
+    frequency = get_word_frequency(text)
+    return max(frequency, key=frequency.get)
+def get_unique_words(text):
+    frequency = get_word_frequency(text)
+    return set(frequency.keys())
+try:
+    result = get_word_frequency(text)
+    print(result)
+
+except ValueError as e:
+    print("Error:", e)
+
+OUTPUT:
+{'python': 3, 'is': 3, 'easy': 1, 'powerful': 1, 'widely': 1, 'used': 1}
