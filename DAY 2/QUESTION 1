@@ -1,0 +1,70 @@
+students = [
+    {"name": "Tarun", "marks": [80, 72, 91]},
+    {"name": "Ashmita", "marks": [65, 88, 79]},
+    {"name": "Alinda", "marks": [35, 42, 38]},
+    {"name": "Pritam", "marks": [79, 41, 26]},
+    {"name": "Anirban", "marks": [81, 91, 31]},
+]
+def find_average_marks(marks):
+    if not marks:
+        return 0
+    return sum(marks) / len(marks)
+def has_passed(marks, passing_marks = 40):
+    return all(mark >= passing_marks for mark in marks)
+def find_topper(students):
+    return max(students, key=lambda student: find_average_marks(student["marks"]))
+def find_lowest_performer(students):
+    return min(students, key=lambda student: find_average_marks(student["marks"]))
+def find_class_average_marks(students):
+    if not students:
+        return 0
+    total_marks = sum(
+        sum(student["marks"]) for student in students
+    )
+    total_subjects = sum(
+        len(student["marks"]) for student in students
+    )
+    return total_marks / total_subjects
+def display_student_results(students):
+    for student in students:
+        average = find_average_marks(student["marks"])
+        result = "PASS" if has_passed(student["marks"]) else "FAIL"
+        print(
+            f"{student['name']}: "
+            f"Average = {average:.2f}, "
+            f"Result = {result}"
+        )
+print("Student Results")
+print("-" * 30)
+display_student_results(students)
+topper = find_topper(students)
+topper_average = find_average_marks(topper["marks"])
+print("\nTopper")
+print(f"{topper['name']}-{topper_average:.2f}")
+lowest_performer = find_lowest_performer(students)
+lowest_average = find_average_marks(lowest_performer["marks"])
+print("\nLowest Performing Student")
+print(f"{lowest_performer['name']}-{lowest_average:.2f}")
+class_average = find_class_average_marks(students)
+print("\nClass Average")
+print(f"{class_average:.2f}")
+
+
+OUTPUT:
+
+Student Results
+------------------------------
+Tarun: Average = 81.00, Result = PASS
+Ashmita: Average = 77.33, Result = PASS
+Alinda: Average = 38.33, Result = FAIL
+Pritam: Average = 48.67, Result = FAIL
+Anirban: Average = 67.67, Result = FAIL
+
+Topper
+Tarun-81.00
+
+Lowest Performing Student
+Alinda-38.33
+
+Class Average
+62.60
