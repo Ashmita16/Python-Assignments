@@ -1,0 +1,32 @@
+def validate_password(password):
+    errors = []
+    if len(password) < 8:
+        errors.append("Password must be at least 8 characters long")
+    if not any(char.isupper() for char in password):
+        errors.append("Missing uppercase letter")
+    if not any(char.islower() for char in password):
+        errors.append("Missing lowercase letter")
+    if not any(char.isdigit() for char in password):
+        errors.append("Missing number")
+    if not any(not char.isalnum() for char in password):
+        errors.append("Missing special character")
+    if errors:
+        print("Invalid password:")
+        for error in errors:
+            print(f"- {error}")
+    else:
+        print("Valid password")
+def main():
+    password = input("Password: ")
+    validate_password(password)
+if __name__ == "__main__":
+    main()
+
+OUTPUT:
+
+Password: ashmita67
+Invalid password:
+- Missing uppercase letter
+- Missing special character
+Password: Ashmita@123
+Valid password
