@@ -1,0 +1,179 @@
+accounts = {}
+class BankingError(Exception):
+    pass
+class InvalidAccountError(BankingError):
+    pass
+class InvalidAmountError(BankingError):
+    pass
+class InsufficientBalanceError(BankingError):
+    pass
+class DuplicateAccountError(BankingError):
+    pass
+def create_account():
+    account_number = input("Enter account number: ")
+    name = input("Enter account holder name: ")
+    balance = float(input("Enter initial balance: "))
+    if account_number in accounts:
+        raise DuplicateAccountError(
+            "Account number already exists."
+        )
+    if balance < 0:
+        raise InvalidAmountError(
+            "Initial balance cannot be negative"
+        )
+    accounts[account_number] = {
+        "account_number": account_number,
+        "name": name,
+        "balance": balance
+    }
+    print("Account created successfully")
+def deposit():
+    account_number = input("Enter account number: ")
+    if account_number not in accounts:
+        raise InvalidAccountError(
+            "Invalid account number"
+        )
+    amount = float(input("Enter deposit amount: "))
+    if amount <= 0:
+        raise InvalidAmountError(
+            "Amount must be positive."
+        )
+    accounts[account_number]["balance"] += amount
+    print("Amount deposited successfully")
+def withdraw():
+    account_number = input("Enter account number: ")
+    if account_number not in accounts:
+        raise InvalidAccountError(
+            "Invalid account number."
+        )
+    amount = float(input("Enter withdrawal amount: "))
+    if amount <= 0:
+        raise InvalidAmountError(
+            "Amount must be positive"
+        )
+    if amount > accounts[account_number]["balance"]:
+        raise InsufficientBalanceError(
+            "Insufficient balance."
+        )
+    accounts[account_number]["balance"] -= amount
+    print("Amount withdrawn successfully")
+def transfer():
+    sender = input("Enter sender account number: ")
+    receiver = input("Enter receiver account number: ")
+    if sender not in accounts:
+        raise InvalidAccountError(
+            "Sender account does not exist"
+        )
+    if receiver not in accounts:
+        raise InvalidAccountError(
+            "Receiver account does not exist"
+        )
+    amount = float(input("Enter transfer amount: "))
+
+    if amount <= 0:
+        raise InvalidAmountError(
+            "Amount must be positive"
+        )
+
+    if amount > accounts[sender]["balance"]:
+        raise InsufficientBalanceError(
+            "Insufficient balance."
+        )
+
+    accounts[sender]["balance"] -= amount
+    accounts[receiver]["balance"] += amount
+
+    print("Transfer successful")
+def get_balance():
+    account_number = input("Enter account number: ")
+
+    if account_number not in accounts:
+        raise InvalidAccountError(
+            "Invalid account number"
+        )
+
+    print(
+        "Account Holder:",
+        accounts[account_number]["name"]
+    )
+
+    print(
+        "Balance:",
+        accounts[account_number]["balance"]
+    )
+while True:
+    print("1. Create Account")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Check Balance")
+    print("5. Transfer")
+    print("6. Exit")
+
+    choice = input("Enter your choice: ")
+
+    try:
+
+        if choice == "1":
+            create_account()
+
+        elif choice == "2":
+            deposit()
+
+        elif choice == "3":
+            withdraw()
+
+        elif choice == "4":
+            get_balance()
+
+        elif choice == "5":
+            transfer()
+
+        elif choice == "6":
+            print("Thank you for using the banking system")
+            break
+
+        else:
+            print("Invalid choice")
+
+    except BankingError as e:
+        print("Error:", e)
+
+    except ValueError:
+        print("Please enter a valid number")
+
+
+OUTPUT:
+
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Check Balance
+5. Transfer
+6. Exit
+Enter your choice: 1
+Enter account number: ACC1001
+Enter account holder name: Poku
+Enter initial balance: 5000
+Account created successfully
+
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Check Balance
+5. Transfer
+6. Exit
+Enter your choice: 4
+Enter account number: ACC1001
+Account Holder: Poku
+Balance: 5000.0
+
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Check Balance
+5. Transfer
+6. Exit
+Enter your choice: 2
+Enter account number: ACC1001
+Enter deposit amount: -6000
+Error: Amount must be positive.
