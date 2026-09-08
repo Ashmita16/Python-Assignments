@@ -92,3 +92,60 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+OUTPUT:
+
+1. Add book
+2. Remove book
+3. Search book
+4. Register user
+5. Issue book
+6. Return book
+7. List available books
+8. List issued books
+9. Exit
+===================================
+Enter option: 1
+Enter Book ID: 234
+Enter Book Title: Hi
+Enter Author: Ashmita
+[Success] Book 'Hi' added successfully
+1. Add book
+2. Remove book
+3. Search book
+4. Register user
+5. Issue book
+6. Return book
+7. List available books
+8. List issued books
+9. Exit
+===================================
+Enter option: 3
+Enter Title, Author, or Book ID to search: 234
+
+Found 1 book(s):
+ - ID: 234 | Title: Hi | Author: Ashmita | Status: Available
+1. Add book
+2. Remove book
+3. Search book
+4. Register user
+5. Issue book
+6. Return book
+7. List available books
+8. List issued books
+===================================
+Enter option: 7
+
+Available Books:
+ - ID: 1 | Title: Inglorious Empire | Author: Sashi Tharoor
+ - ID: 234 | Title: Hi | Author: Ashmita
+1. Add book
+2. Remove book
+3. Search book
+4. Register user
+5. Issue book
+6. Return book
+7. List available books
+8. List issued books
+9. Exit
+===================================
