@@ -1,0 +1,75 @@
+questions = [
+    {
+        "question": "What is Python?",
+        "options": ["Language", "Database", "OS", "Browser"],
+        "answer": 1
+    }
+]
+def display_question(question_number):
+    question = questions[question_number]
+    print("\nQuestion", question_number + 1)
+    print(question["question"])
+    for i, option in enumerate(question["options"], start=1):
+        print(i, ".", option)
+def get_answer():
+    while True:
+        try:
+            answer = int(input("Enter your answer: "))
+            if answer < 1 or answer > 4:
+                raise ValueError
+            return answer
+        except ValueError:
+            print("Invalid answer")
+def check_answer(question, answer):
+    return answer == question["answer"]
+def calculate_score(correct, total):
+    return (correct / total) * 100
+def main():
+    correct = 0
+
+    for i in range(len(questions)):
+        display_question(i)
+
+        answer = get_answer()
+
+        if check_answer(questions[i], answer):
+            print("Correct!")
+            correct += 1
+        else:
+            print("Wrong!")
+    total = len(questions)
+    wrong = total - correct
+    score = calculate_score(correct, total)
+    print("Total Questions:", total)
+    print("Correct:", correct)
+    print("Wrong:", wrong)
+    print("Score:", score, "%")
+main()
+
+OUTPUT:
+Question 1
+What is Python?
+1 . Language
+2 . Database
+3 . OS
+4 . Browser
+Enter your answer: 2
+Wrong!
+Total Questions: 1
+Correct: 0
+Wrong: 1
+Score: 0.0 %
+
+
+Question 1
+What is Python?
+1 . Language
+2 . Database
+3 . OS
+4 . Browser
+Enter your answer: 1
+Correct!
+Total Questions: 1
+Correct: 1
+Wrong: 0
+Score: 100.0 %
