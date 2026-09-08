@@ -1,0 +1,28 @@
+files = [
+    "resume.pdf",
+    "photo.jpg",
+    "report.pdf",
+    "data.csv",
+    "image.png",
+    "notes.txt"
+]
+def get_extension(filename):
+    if "." not in filename or filename.startswith("."):
+        return None
+    return filename.split(".")[-1].lower()
+def analyze_extensions(files):
+    extension_count = {}
+
+    for filename in files:
+        extension = get_extension(filename)
+
+        if extension is not None:
+            extension_count[extension] = (
+                extension_count.get(extension, 0) + 1
+            )
+    return extension_count
+result = analyze_extensions(files)
+print(result)
+
+OUTPUT:
+{'pdf': 2, 'jpg': 1, 'csv': 1, 'png': 1, 'txt': 1}
