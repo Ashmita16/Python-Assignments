@@ -1,0 +1,133 @@
+
+balance = 5000
+pin = "1234"
+class ATMError(Exception):
+    pass
+class InvalidPINError(ATMError):
+    pass
+class InvalidAmountError(ATMError):
+    pass
+class InsufficientBalanceError(ATMError):
+    pass
+def validate_pin(pin):
+    if len(pin) != 4:
+        raise InvalidPINError("PIN must contain exactly 4 digits")
+    if not pin.isdigit():
+        raise InvalidPINError("PIN must contain only digits")
+def check_balance():
+    print("Current Balance:", balance)
+def withdraw(amount):
+    global balance
+
+    if amount <= 0:
+        raise InvalidAmountError(
+            "Withdrawal amount must be positive"
+        )
+    if amount % 100 != 0:
+        raise InvalidAmountError(
+            "Withdrawal amount must be a multiple of 100"
+        )
+
+    if amount > balance:
+        raise InsufficientBalanceError(
+            "Insufficient balance"
+        )
+    balance -= amount
+    print("Withdrawal successful.")
+    print("Remaining Balance:", balance)
+def deposit(amount):
+    global balance
+    if amount <= 0:
+        raise InvalidAmountError(
+            "Deposit amount must be positive"
+        )
+    balance += amount
+    print("Deposit successful")
+    print("Current Balance:", balance)
+def change_pin():
+    global pin
+    new_pin = input("Enter new PIN: ")
+    validate_pin(new_pin)
+    pin = new_pin
+    print("PIN changed successfully")
+def atm_menu():
+    while True:
+        print("1. Check Balance")
+        print("2. Withdraw")
+        print("3. Deposit")
+        print("4. Change PIN")
+        print("5. Exit")
+
+        choice = input("Enter your choice: ")
+
+        try:
+
+            if choice == "1":
+                check_balance()
+
+            elif choice == "2":
+                amount = float(input("Enter withdrawal amount: "))
+                withdraw(amount)
+
+            elif choice == "3":
+                amount = float(input("Enter deposit amount: "))
+                deposit(amount)
+
+            elif choice == "4":
+                change_pin()
+
+            elif choice == "5":
+                print("Thank you for using the ATM")
+                break
+
+            else:
+                print("Invalid choice")
+
+        except ATMError as e:
+            print("Error:", e)
+
+        except ValueError:
+            print("Please enter a valid amount")
+def main():
+
+    global pin
+    attempts = 0
+    while attempts < 3:
+        entered_pin = input("Enter PIN: ")
+        try:
+            validate_pin(entered_pin)
+            if entered_pin == pin:
+                print("PIN verified successfully")
+                atm_menu()
+                return
+            else:
+                attempts += 1
+                print("Incorrect PIN")
+        except InvalidPINError as e:
+            attempts += 1
+            print("Error:", e)
+        if attempts < 3:
+            print("Attempts remaining:", 3 - attempts)
+
+    print("Maximum incorrect attempts reached")
+    print("ATM blocked")
+main()
+
+OUTPUT:
+Enter PIN: 7658
+Incorrect PIN
+Attempts remaining: 2
+Enter PIN: 1234
+PIN verified successfully
+1. Check Balance
+2. Withdraw
+3. Deposit
+4. Change PIN
+5. Exit
+Enter your choice: 1
+Current Balance: 5000
+1. Check Balance
+2. Withdraw
+3. Deposit
+4. Change PIN
+5. Exit
