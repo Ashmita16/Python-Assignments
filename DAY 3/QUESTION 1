@@ -1,0 +1,42 @@
+import asyncio
+import time
+async def fetch_user():
+    await asyncio.sleep(2)
+    return {"id": 101, "name": "Poku"}
+async def fetch_orders():
+    await asyncio.sleep(3)
+    return [
+        {"id": 1, "amount": 1200},
+        {"id": 2, "amount": 800}
+    ]
+async def fetch_notifications():
+    await asyncio.sleep(1)
+    return [
+        "Payment received",
+        "New login detected"
+    ]
+async def fetch_dashboard_data():
+    start_time = time.perf_counter()
+    
+    user, orders, notifications = await asyncio.gather(
+        fetch_user(),
+        fetch_orders(),
+        fetch_notifications()
+    )
+    end_time = time.perf_counter()
+    total_time = end_time - start_time
+    print(f"Total execution time: {total_time:.2f} seconds")
+    
+    return {
+        "user": user,
+        "orders": orders,
+        "notifications": notifications
+    }
+dashboard_result = asyncio.run(fetch_dashboard_data())
+print(dashboard_result)
+
+
+OUTPUT:
+
+Total execution time: 3.01 seconds
+{'user': {'id': 101, 'name': 'Poku'}, 'orders': [{'id': 1, 'amount': 1200}, {'id': 2, 'amount': 800}], 'notifications': ['Payment received', 'New login detected']}
